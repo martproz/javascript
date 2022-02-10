@@ -1,25 +1,30 @@
-const valorCuotas = (deuda, CFT, meses) => (deuda + CFT) / meses
-let deuda = parseFloat(prompt("Ingrese el monto de la deuda")) 
-let CFT = parseFloat(prompt("Ingrese el Costo Financiero Total")) 
-let meses = parseFloat(prompt("Ingrese la cantidad de meses"))
-let resultado = valorCuotas(deuda, CFT, meses) 
-console.log(`El valor de cada cuota es de ${resultado}`)
+/*Buenas tardes, Franco. Te paso el código para la próxima entrega, para saber dónde está el problema
+¿Qué quiero hacer?
+1) Que, a través de un prompt, el usuario me dé tres datos: nombre, apellido, edad.
+2) Esa información la quiero almacenar en una variable.
+3) Quiero crear un nuevo objeto con esos tres datos.
+4) Después, con push, agregar los datos de una nueva persona y que los guarde en una base de datos. 
+5) Un primer problema es que nuevoSujeto, según entiendo, está dentro de la función a nivel local.
+*/   
 
-if (deuda >= 200) {
-    alert("Su deuda es elevada");
+
+let nombreCapturar = prompt("Ingrese un nombre");
+let apellidoCapturar = prompt("Ingrese un apellido");
+let edadCapturar = prompt("Ingrese una edad");
+
+function capturar() {
+    function Persona(nombre,edad,apellido) {
+      this.nombre = nombre;
+      this.edad = edad;
+      this.apellido = apellido;
+    }
+
+  nuevoSujeto = new Persona(nombreCapturar,apellidoCapturar,edadCapturar);
+    agregar(); 
 }
 
-if (CFT >= 300) {
-    alert("Nuestro banco quebrará por gente como usted.");
-}
-
-for(meses = 1; meses === 1; meses--) {
-    console.log("Usted ha consultado por " + meses + " mes.");
-}
-
-for(meses = 2; meses <= 12; meses++) {
-    console.log("Usted ha consultado por " + meses + " meses.");
-}
-
-
-
+  let baseDatos = [];
+  function agregar() {
+    baseDatos.push(nuevoSujeto);
+  };
+console.log(agregar());
