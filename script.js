@@ -1,30 +1,27 @@
-/*Buenas tardes, Franco. Te paso el código para la próxima entrega, para saber dónde está el problema
-¿Qué quiero hacer?
-1) Que, a través de un prompt, el usuario me dé tres datos: nombre, apellido, edad.
-2) Esa información la quiero almacenar en una variable.
-3) Quiero crear un nuevo objeto con esos tres datos.
-4) Después, con push, agregar los datos de una nueva persona y que los guarde en una base de datos. 
-5) Un primer problema es que nuevoSujeto, según entiendo, está dentro de la función a nivel local.
-*/   
-
-
-let nombreCapturar = prompt("Ingrese un nombre");
-let apellidoCapturar = prompt("Ingrese un apellido");
-let edadCapturar = prompt("Ingrese una edad");
-
-function capturar() {
-    function Persona(nombre,edad,apellido) {
-      this.nombre = nombre;
-      this.edad = edad;
-      this.apellido = apellido;
+class Cliente {
+    constructor(nombre,apellido,edad) { 
+        this.nombre =  nombre;
+        this.apellido = apellido;
+        this.edad = edad;
     }
-
-  nuevoSujeto = new Persona(nombreCapturar,apellidoCapturar,edadCapturar);
-    agregar(); 
 }
 
-  let baseDatos = [];
-  function agregar() {
-    baseDatos.push(nuevoSujeto);
-  };
-console.log(agregar());
+const persona1 = new Cliente(prompt("Ingrese un nombre"), 
+                       prompt("Ingrese el apellido"), 
+                       parseInt(prompt("Ingrese la edad")))
+
+const persona2 = new Cliente(prompt("Ingrese un nombre"), 
+                       prompt("Ingrese el apellido"), 
+                       parseInt(prompt("Ingrese la edad")))
+                       
+const persona3 = new Cliente(prompt("Ingrese un nombre"), 
+                       prompt("Ingrese el apellido"), 
+                       parseInt(prompt("Ingrese la edad"))) 
+
+let arrayPersonas = [persona1, persona2, persona3]
+
+const persona4 = new Cliente("Javier", "Diaz", 21)
+
+let total = arrayPersonas.push(persona4);
+
+console.log(arrayPersonas);
