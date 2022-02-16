@@ -13,42 +13,46 @@ if (CFT >= 300000) {
     alert("Su Costo Financiero Total es mayor a $300.000");
 }
 
-
 class Cliente {
-    constructor(nombre,apellido,edad,sueldo) { 
+    constructor(nombre, apellido, edad, salario, deuda) { 
         this.nombre =  nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.sueldo = sueldo;
+        this.salario = salario;
+        this.deuda = deuda;
     }
-}
+};
+
 
 const persona1 = new Cliente(prompt("Ingrese un nombre"), 
-                            prompt("Ingrese el apellido"), 
-                            parseInt(prompt("Ingrese la edad")),
-                            parseInt(prompt("Ingrese el sueldo"))
-)
+                       prompt("Ingrese el apellido"), 
+                       parseInt(prompt("Ingrese la edad")),
+                       parseInt(prompt("Ingrese su salario")),
+                       parseInt(prompt("Ingrese su deuda"))
+);
 
 const persona2 = new Cliente(prompt("Ingrese un nombre"), 
-                            prompt("Ingrese el apellido"), 
-                            parseInt(prompt("Ingrese la edad")),
-                            parseInt(prompt("Ingrese el sueldo"))
-)
-                       
-const persona3 = new Cliente(prompt("Ingrese un nombre"), 
-                            prompt("Ingrese el apellido"), 
-                            parseInt(prompt("Ingrese la edad")),    
-                            parseInt(prompt("Ingrese el sueldo"))
-)
+                       prompt("Ingrese el apellido"), 
+                       parseInt(prompt("Ingrese la edad")),
+                       parseInt(prompt("Ingrese su salario")),
+                       parseInt(prompt("Ingrese su deuda"))
+);
 
-let arrayPersonas = [persona1, persona2, persona3]
+const persona3 = new Cliente("Javier", "Diaz", 21, 1000, 5000)
 
-const persona4 = new Cliente("Javier", "Diaz", 21, 50000)
+let arrayPersonas = [persona1, persona2, persona3]     
+    
+let filtro = arrayPersonas.map(function(mostrar) { 
+      return mostrar.deuda 
+});
 
-let total = arrayPersonas.push(persona4);
+    console.log(filtro);
 
-let mapeo = arrayPersonas.map(function(salario) {
-    return salario.sueldo
-})
 
-console.log(arrayPersonas);
+    
+let filtroDeuda = arrayPersonas.sort(function(a, b) {
+    return a.deuda - b.deuda;
+});
+
+
+console.log(filtroDeuda);
