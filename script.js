@@ -51,7 +51,13 @@ let filtro = arrayPersonas.map(function(mostrar) {
 
     
 let filtroDeuda = arrayPersonas.sort(function(a, b) {
-    return a.deuda - b.deuda;
+    if (a.deuda > b.deuda) {
+        return 1;
+      }
+      if (a.deuda < b.deuda) {
+        return -1;
+      }
+      return 0;
 });
 
 
