@@ -40,9 +40,14 @@ formulario.addEventListener('submit', (e) => {
 
 if (  (document.getElementById('idApellido').value == "" || NaN) || (document.getElementById('idDeuda').value == "" || NaN) || (document.getElementById('idCft').value == "" || NaN) || (document.getElementById('idMeses').value == "" || NaN)) {
     alert("Por favor, complete todos los campos")
+    formulario.reset()
+    return true
 }
 
-    if(!arrayClientes.some(usuarioEnArray => usuarioEnArray.email == email)) {
+
+    if( (arrayClientes.some(usuarioEnArray => usuarioEnArray.nombre === nombre)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.apellido === apellido)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.email === email)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.deuda === deuda)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.cft === cft)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.meses === meses)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.resultado === resultado))  ) {
+        alert("Los datos ingresados ya figuran en nuestra base de datos")
+    } else {        
         const cliente = new Cliente(nombre, apellido, email, deuda, cft, meses, resultado)
         arrayClientes.push(cliente)
         localStorage.setItem('usuarios', JSON.stringify(arrayClientes))
@@ -56,7 +61,7 @@ botonMostrarUsuarios.addEventListener('click', () => {
         divUsers.innerHTML += `
             <div class="card" id="user${indice}" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title col">Usuario: ${usuarioEnArray.nombre}</h5>
+                    <h5 class="card-title col">Nombre: ${usuarioEnArray.nombre}</h5>
                     <p class="card-text col">Apellido: ${usuarioEnArray.apellido}</p>
                     <p class="card-text col">Email: ${usuarioEnArray.email}</p>
                     <p class="card-text col">Deuda: ${usuarioEnArray.deuda}</p>
