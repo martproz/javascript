@@ -26,29 +26,8 @@ let botonMostrarUsuarios = document.getElementById("botonMostrarUsers")
 let divUsers = document.getElementById("divUsuarios") 
 
 
-function IsEmpty() {
-    if (document.forms['frm'].nombre.value === "") {
-      console.log("Por favor, complete los campos");
-      return false;
-    } else if (document.forms['frm'].apellido.value === "") {
-    return false;
-  } else if (document.forms['frm'].email.value === "") {
-    return false;
-} else if (document.forms['frm'].deuda.value === "") {
-    return false;
-} else if (document.forms['frm'].cft.value === "") {
-    return false;
-} else if (document.forms['frm'].meses.value === "") {
-    return false;
-} else {
-    return true
-}
-}
-
-
 formulario.addEventListener('submit', (e) => {
     e.preventDefault()
-    e.IsEmpty()
 
     let nombre = document.getElementById('idNombre').value; 
     let apellido = document.getElementById('idApellido').value; 
@@ -59,8 +38,25 @@ formulario.addEventListener('submit', (e) => {
     let resultado = (+deuda + +cft) / meses; 
     document.getElementById("resultadoTexto").value = resultado;
 
-    });
+if (document.getElementById('idNombre').value == "" || NaN) {
+    alert("Ingrese nombre")
+}
 
+if (document.getElementById('idApellido').value == "" || NaN) {
+    alert("Ingrese apellido")
+}
+
+if (document.getElementById('idDeuda').value == "" || NaN) {
+    alert("Ingrese monto deuda")
+}
+
+if (document.getElementById('idCft').value == "" || NaN) {
+    alert("Ingrese monto CFT")
+}
+
+if (document.getElementById('idMeses').value == "" || NaN) {
+    alert("Ingrese cantidad meses")
+}
 
     if(!arrayClientes.some(usuarioEnArray => usuarioEnArray.email == email)) {
         const cliente = new Cliente(nombre, apellido, email, deuda, cft, meses, resultado)
@@ -68,6 +64,7 @@ formulario.addEventListener('submit', (e) => {
         localStorage.setItem('usuarios', JSON.stringify(arrayClientes))
         formulario.reset()
     }
+}) 
 
 
 botonMostrarUsuarios.addEventListener('click', () => {
