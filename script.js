@@ -38,24 +38,8 @@ formulario.addEventListener('submit', (e) => {
     let resultado = (+deuda + +cft) / meses; 
     document.getElementById("resultadoTexto").value = resultado;
 
-if (document.getElementById('idNombre').value == "" || NaN) {
-    alert("Ingrese nombre")
-}
-
-if (document.getElementById('idApellido').value == "" || NaN) {
-    alert("Ingrese apellido")
-}
-
-if (document.getElementById('idDeuda').value == "" || NaN) {
-    alert("Ingrese monto deuda")
-}
-
-if (document.getElementById('idCft').value == "" || NaN) {
-    alert("Ingrese monto CFT")
-}
-
-if (document.getElementById('idMeses').value == "" || NaN) {
-    alert("Ingrese cantidad meses")
+if (  (document.getElementById('idApellido').value == "" || NaN) || (document.getElementById('idDeuda').value == "" || NaN) || (document.getElementById('idCft').value == "" || NaN) || (document.getElementById('idMeses').value == "" || NaN)) {
+    alert("Por favor, complete todos los campos")
 }
 
     if(!arrayClientes.some(usuarioEnArray => usuarioEnArray.email == email)) {
