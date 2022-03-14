@@ -4,43 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora de cuotas</title>
+    <!-- Bootstrap 5    -->
     <link href="https://bootswatch.com/5/minty/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Link CSS   -->
+    <link rel="stylesheet" href="/styles.css">
+    <!-- Tipografía -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@900&amp;display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="container py-5 d-flex justify-content-center">
-      <form id="idForm">
-        <div class="mb-3">
-          <input class="form-control" type="text" id="idNombre" placeholder="Nombre" name="nombre">
+    <section class="section">
+      <div class="container d-flex justify-content-center mt-5">
+        <div class="content center">
+          <h1>Calculadora de cuotas</h1>
+          <p> Esta simple calculadora permite calcular la cuota mensual que deberán pagar los clientes y almacenar esa información. </p>
         </div>
-        <div class="mb-3">
-          <input class="form-control" type="text" id="idApellido" placeholder="Apellido" name="apellido">
-        </div>
-        <div class="mb-3">
-          <input class="form-control" type="email" id="idEmail" placeholder="Email" name="email">
-        </div>
-        <div class="mb-3">
-          <input class="form-control" type="number" id="idDeuda" placeholder="Deuda" name="deuda">
-        </div>
-        <div class="mb-3">
-          <input class="form-control" type="number" id="idCft" placeholder="CFT" name="cft">
-        </div>
-        <div class="mb-3">
-          <input class="form-control" type="number" id="idMeses" placeholder="Meses" name="meses" min="1" max="12">
-        </div>
-        <div class="mb-3">
-          <input type="text" id="resultadoTexto" placeholder="Resultado" name="TextBox">
-        </div>
-        <button type="submit" class="btn btn-primary">Mostrar cuotas</button>
+    </section>
+    <!-- Animación creada con librería AnimeJS   -->
+    <section class="section">
+      <div class="container">
+        <div class="circulo"></div>
+        <div class="circulo"></div>
+        <div class="circulo"></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container py-5 d-flex justify-content-center">
+        <form id="idForm">
+          <div class="mb-3">
+            <input class="form-control" type="text" id="idNombre" placeholder="Nombre" name="nombre">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="text" id="idApellido" placeholder="Apellido" name="apellido">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="email" id="idEmail" placeholder="Email" name="email">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="number" id="idDeuda" placeholder="Deuda" name="deuda">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="number" id="idCft" placeholder="CFT" name="cft">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="number" id="idMeses" placeholder="Meses" name="meses" min="1" max="12">
+          </div>
+          <div class="mb-3">
+            <input type="text" id="resultadoTexto" placeholder="Resultado" name="TextBox">
+          </div>
+    </section>
+    <section class="section">
+      <div class="container d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary comprimir me-2">Mostrar cuotas</button>
         <br>
         <br>
-        <button id="botonMostrarUsers" class="btn btn-secondary">Mostrar Usuarios</button>
+        <button id="botonMostrarUsers" class="btn btn-secondary comprimir me-2">Mostrar usuarios</button>
         <br>
-      </form>
-      <br>
-      <br>
+        <br>
+        <button id="mjson" class="btn btn-danger comprimir me-2"> Mostrar JSON </button>
+        <br>
+        <br>
+        <button id="newUs" class="btn btn-dark comprimir me-2"> Nuevo usuario con msj </button>
+        <br>
+      </div>
+    </section>
+    </form>
+    <br>
+    <br>
     </div>
     <div id="divUsuarios" class="row"></div>
+    <!-- JS Anime, https://github.com/juliangarnier/anime    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+    <!-- JS Sweet Alert, https://sweetalert.js.org/guides/    -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Link JS local    -->
     <script src="script.js"></script>
   </body>
 </html>
