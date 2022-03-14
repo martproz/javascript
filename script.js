@@ -1,3 +1,12 @@
+//Librería AnimeJS
+anime({
+    targets: '.circulo',
+    translateX: 500,
+    delay: anime.stagger(200, {start: 1000}), 
+    background: "#0000FF",
+    direction: "reverse"
+
+})
 
 class Cliente {
     constructor(nombre, apellido, email, deuda, cft, meses, resultado) {
@@ -39,20 +48,21 @@ formulario.addEventListener('submit', (e) => {
     document.getElementById("resultadoTexto").value = resultado;
 
 if (  (document.getElementById('idApellido').value == "" || NaN) || (document.getElementById('idDeuda').value == "" || NaN) || (document.getElementById('idCft').value == "" || NaN) || (document.getElementById('idMeses').value == "" || NaN)) {
-    alert("Por favor, complete todos los campos")
+    swal("Por favor, complete todos los campos.");
     formulario.reset()
     return true
 }
 
 
     if( (arrayClientes.some(usuarioEnArray => usuarioEnArray.nombre === nombre)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.apellido === apellido)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.email === email)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.deuda === deuda)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.cft === cft)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.meses === meses)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.resultado === resultado))  ) {
-        alert("Los datos ingresados ya figuran en nuestra base de datos")
+        swal("Los datos ingresados ya figuran en nuestra base de datos");
     } else {        
         const cliente = new Cliente(nombre, apellido, email, deuda, cft, meses, resultado)
         arrayClientes.push(cliente)
         localStorage.setItem('usuarios', JSON.stringify(arrayClientes))
         formulario.reset()
     }
+
 }) 
 
 
@@ -75,3 +85,45 @@ botonMostrarUsuarios.addEventListener('click', () => {
         `
     })
 })
+
+const nuevoUsuario = document.getElementById('newUs')
+nuevoUsuario.onclick = function newUs(){
+const personaNueva = {
+    nombre: "Pedro",
+    apellido: "Paramo",
+    estadoDeuda: 'actividad', 
+    dirección: {
+      ciudad: 'La Plata',
+      provincia: 'Buenos Aires '
+    }
+  }
+  
+  function nuevaPersona({ nombre, apellido, estadoDeuda = 'inactividad'}) {
+    console.log(`Mi nombre es ${nombre} y mi apellido es ${apellido}. Mi deuda está en estado de ${estadoDeuda}.`)
+}
+  
+  newUs(personaNueva)
+ };
+
+
+
+const btnMostrarJson = document.getElementById('mjson')
+btnMostrarJson.onclick = function mosJson(){
+
+    let respuestaDiferida = (delay = 2000) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, delay);
+        });
+    };
+    
+    respuestaDiferida(5000).then(() => {
+        console.log("Usted ha obtenido lo que está en el JSON local.");
+    });
+    fetch("./data_class.json")
+    .then(res => {
+        return res.json();
+    }).then(data => {
+        console.log(data);
+    } );
+};
+
