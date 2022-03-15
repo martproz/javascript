@@ -2,6 +2,20 @@
     box-sizing: border-box;
   }
 
+  aside {
+    position: relative;
+    top: 10px;
+    bottom: 1500px;
+    left: 1500px;
+
+  }
+
+  .aside {
+    font-family: 'Outfit', sans-serif;
+    color: blue;
+    font-size: 40px;
+  }
+
   body {
     background-color: #c5bdaa;
     margin: 0;
@@ -51,12 +65,21 @@ h1 {
 
 p {
     font-family: 'Outfit', sans-serif;
-    color: brown;
-    font-size: 20px; }
+    color: black;
+    font-size: 25px; }
 
 .comprimir {
     display: flex;
     justify-content: center;
     align-self: flex-start;
     flex-direction: center  ;
+}
+
+.ft {
+  background-color: rgba(0, 0, 0, 0.2);
+
+}
+
+header {
+  background-color: #F0E68C; 
 }
