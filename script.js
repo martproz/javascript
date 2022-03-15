@@ -63,6 +63,7 @@ formulario.addEventListener('submit', (e) => {
 if (  (document.getElementById('idApellido').value == "" || NaN) || (document.getElementById('idDeuda').value == "" || NaN) || (document.getElementById('idCft').value == "" || NaN) || (document.getElementById('idMeses').value == "" || NaN)) {
     swal("Por favor, complete todos los campos.");
     formulario.reset()
+    return
 } else {
     const cliente = new Cliente(nombre, apellido, email, deuda, cft, meses, resultado)
     arrayClientes.push(cliente)
@@ -72,15 +73,15 @@ if (  (document.getElementById('idApellido').value == "" || NaN) || (document.ge
 }
 
 //condicional para no se pueda volver a ingresar exactamente el mismo usuario
-    if( (arrayClientes.some(usuarioEnArray => usuarioEnArray.nombre === nombre)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.apellido === apellido)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.email === email)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.deuda === deuda)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.cft === cft)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.meses === meses)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.resultado === resultado))  ) {
-        swal("Los datos ingresados ya figuran en nuestra base de datos");
-    } else {        
-        const cliente = new Cliente(nombre, apellido, email, deuda, cft, meses, resultado)
-        arrayClientes.push(cliente)
-        localStorage.setItem('usuarios', JSON.stringify(arrayClientes))
-        formulario.reset()
-        return true
-    }
+    // if( (arrayClientes.some(usuarioEnArray => usuarioEnArray.nombre === nombre)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.apellido === apellido)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.email === email)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.deuda === deuda)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.cft === cft)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.meses === meses)) && (arrayClientes.some(usuarioEnArray => usuarioEnArray.resultado === resultado))  ) {
+    //     swal("Los datos ingresados ya figuran en nuestra base de datos");
+    // } else {        
+    //     const cliente = new Cliente(nombre, apellido, email, deuda, cft, meses, resultado)
+    //     arrayClientes.push(cliente)
+    //     localStorage.setItem('usuarios', JSON.stringify(arrayClientes))
+    //     formulario.reset()
+    //     return true
+    // }
 
 }) 
 
@@ -98,8 +99,14 @@ botonMostrarUsuarios.addEventListener('click', () => {
                     <p class="card-text col">CFT: ${usuarioEnArray.cft}</p>
                     <p class="card-text col">Meses: ${usuarioEnArray.meses}</p>
                     <p class="card-text col">Cuota mensual: ${usuarioEnArray.resultado}</p>
-                    <button id="boton${indice}" class="btn btn-danger">Eliminar</button>
-                </div>
+                    <button onclick="deleteElement()" id="boton${indice}" class="btn btn-danger">Eliminar</button>
+                    <script>
+                    function deleteElement() {
+                        usuarioEnArray.splice(index, 0);
+                        console.log(usuarioEnArray) = usuarioEnArray;
+                    }
+                    </script>
+                    </div>
             </div>
         `
     })
