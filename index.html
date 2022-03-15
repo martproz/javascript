@@ -15,68 +15,80 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@900&amp;display=swap" rel="stylesheet">
   </head>
   <body>
-    <section class="section">
-      <div class="container d-flex justify-content-center mt-5">
-        <div class="content center">
-          <h1>Calculadora de cuotas</h1>
-          <p> Esta simple calculadora permite calcular la cuota mensual que deberán pagar los clientes y almacenar esa información. </p>
+    <header>
+      <section class="section">
+        <div class="container d-flex justify-content-center mt-5">
+          <div class="content center">
+            <h1>Calculadora de cuotas</h1>
+            <h3> Esta simple calculadora permite calcular la cuota mensual que deberán pagar los clientes y almacenar esa información. </h3>
+          </div>
+    </header>
+    </section>
+    <main>
+      <!-- Animación creada con librería AnimeJS   -->
+      <section class="section">
+        <div class="container">
+          <div class="circulo"></div>
+          <div class="circulo"></div>
+          <div class="circulo"></div>
         </div>
-    </section>
-    <!-- Animación creada con librería AnimeJS   -->
-    <section class="section">
-      <div class="container">
-        <div class="circulo"></div>
-        <div class="circulo"></div>
-        <div class="circulo"></div>
+      </section>
+      <!-- Formulario    -->
+      <section class="section">
+        <aside>
+          <!-- Muestra los valores dólar luego del click    -->
+          <div class="aside" id="valorDolar"></div>
+        </aside>
+        <div class="container py-5 d-flex justify-content-center">
+          <form id="idForm">
+            <div class="mb-3">
+              <input class="form-control" type="text" id="idNombre" placeholder="Nombre" name="nombre">
+            </div>
+            <div class="mb-3">
+              <input class="form-control" type="text" id="idApellido" placeholder="Apellido" name="apellido">
+            </div>
+            <div class="mb-3">
+              <input class="form-control" type="email" id="idEmail" placeholder="Email" name="email">
+            </div>
+            <div class="mb-3">
+              <input class="form-control" type="number" id="idDeuda" placeholder="Deuda" name="deuda">
+            </div>
+            <div class="mb-3">
+              <input class="form-control" type="number" id="idCft" placeholder="CFT" name="cft">
+            </div>
+            <div class="mb-3">
+              <input class="form-control" type="number" id="idMeses" placeholder="Meses" name="meses" min="1" max="12">
+            </div>
+            <div class="mb-3">
+              <input type="text" id="resultadoTexto" placeholder="Resultado" name="TextBox">
+            </div>
+      </section>
+      <section class="section">
+        <div class="container d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary comprimir me-2">Mostrar cuotas</button>
+          <br>
+          <br>
+          <button id="botonMostrarUsers" class="btn btn-secondary comprimir me-2">Mostrar usuarios</button>
+          <br>
+          <br>
+          <button id="mjson" class="btn btn-danger comprimir me-2">Consultar valor dólar</button>
+          <br>
+        </div>
+      </section>
+      </form>
+      <br>
+      <br>
       </div>
-    </section>
-    <section class="section">
-      <div class="container py-5 d-flex justify-content-center">
-        <form id="idForm">
-          <div class="mb-3">
-            <input class="form-control" type="text" id="idNombre" placeholder="Nombre" name="nombre">
-          </div>
-          <div class="mb-3">
-            <input class="form-control" type="text" id="idApellido" placeholder="Apellido" name="apellido">
-          </div>
-          <div class="mb-3">
-            <input class="form-control" type="email" id="idEmail" placeholder="Email" name="email">
-          </div>
-          <div class="mb-3">
-            <input class="form-control" type="number" id="idDeuda" placeholder="Deuda" name="deuda">
-          </div>
-          <div class="mb-3">
-            <input class="form-control" type="number" id="idCft" placeholder="CFT" name="cft">
-          </div>
-          <div class="mb-3">
-            <input class="form-control" type="number" id="idMeses" placeholder="Meses" name="meses" min="1" max="12">
-          </div>
-          <div class="mb-3">
-            <input type="text" id="resultadoTexto" placeholder="Resultado" name="TextBox">
-          </div>
-    </section>
-    <section class="section">
-      <div class="container d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary comprimir me-2">Mostrar cuotas</button>
-        <br>
-        <br>
-        <button id="botonMostrarUsers" class="btn btn-secondary comprimir me-2">Mostrar usuarios</button>
-        <br>
-        <br>
-        <button id="mjson" class="btn btn-danger comprimir me-2"> Mostrar JSON </button>
-        <br>
-        <br>
-        <button id="newUs" class="btn btn-dark comprimir me-2"> Nuevo usuario con msj </button>
-        <br>
+      <!-- Muestra las tarjetas de usuarios luego del click    -->
+      <div class="container d-flex justify-content-center align-content-center">
+        <div id="divUsuarios" class="row"></div>
       </div>
-    </section>
-    </form>
-    <br>
-    <br>
-    </div>
-    <div class="container d-flex justify-content-center align-content-center">
-      <div id="divUsuarios" class="row"></div>
-    </div>
+    </main>
+    <!-- Footer -->
+    <footer class="ft">
+      <div class="text-center p-3 text-white"> © 2022 Copyright: <a class="text-white" href="">MGP</a>
+      </div>
+    </footer>
     <!-- JS Anime, https://github.com/juliangarnier/anime    -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
     <!-- JS Sweet Alert, https://sweetalert.js.org/guides/    -->
