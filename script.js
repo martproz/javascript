@@ -105,44 +105,28 @@ botonMostrarUsuarios.addEventListener('click', () => {
     })
 })
 
-// const nuevoUsuario = document.getElementById('newUs')
-// nuevoUsuario.onclick = function newUs(){
-// const personaNueva = {
-//     nombre: "Pedro",
-//     apellido: "Paramo",
-//     estadoDeuda: 'actividad', 
-//     dirección: {
-//       ciudad: 'La Plata',
-//       provincia: 'Buenos Aires '
-//     }
-//   }
-  
-//   function nuevaPersona({ nombre, apellido, estadoDeuda = 'inactividad'}) {
-//     console.log(`Mi nombre es ${nombre} y mi apellido es ${apellido}. Mi deuda está en estado de ${estadoDeuda}.`)
-// }
-  
-//   newUs(personaNueva)
-//  };
+//Permite calcular el valor del dólar; vinculado al botón.
+const btnMostrarJson = document.getElementById('mjson')
+btnMostrarJson.onclick = function mosJson(){
 
-
-
-// const btnMostrarJson = document.getElementById('mjson')
-// btnMostrarJson.onclick = function mosJson(){
-
-//     let respuestaDiferida = (delay = 2000) => {
-//         return new Promise((resolve, reject) => {
-//             setTimeout(resolve, delay);
-//         });
-//     };
+    let respuestaDiferida = (delay = 2000) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, delay);
+        });
+    };
     
-//     respuestaDiferida(5000).then(() => {
-//         console.log("Usted ha obtenido lo que está en el JSON local.");
-//     });
-//     fetch("./data_class.json")
-//     .then(res => {
-//         return res.json();
-//     }).then(data => {
-//         console.log(data);
-//     } );
-// };
+    respuestaDiferida(2000).then(() => {
+        console.log("Usted ha obtenido los valores del dólar al día de la fecha.");
+    });
+    fetch("https://criptoya.com/api/dolar")
+    .then(response => response.json()) 
+    .then(data => {
+        let {oficial, solidario, blue} = data
+        valorDolar.innerHTML = `
+            <p> Oficial: ${oficial} </p>
+            <p> Solidario: ${solidario} </p>
+            <p> Blue: ${blue} </p>
+        `
+    })
+};
 
